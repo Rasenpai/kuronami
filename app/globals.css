@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-surface: #fff8f4;
+  --color-surface-container: #f4ece7;
+  --color-surface-container-low: #faf2ed;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-surface: #1e1b18;
+  --color-on-surface-variant: #58413d;
+  --color-inverse-surface: #33302c;
+  --color-inverse-on-surface: #f7efea;
+  --color-outline: #8c716c;
+  --color-outline-variant: #e0bfb9;
+  --color-primary: #972815;
+  --color-primary-container: #b8402a;
+  --color-primary-fixed: #ffdad3;
+  --color-on-primary: #ffffff;
+  --color-on-primary-fixed: #3f0400;
+  --color-secondary: #6e5b47;
+  --color-secondary-container: #f9dec4;
+  --color-on-secondary-fixed-variant: #554431;
+
+  --radius-full: 9999px;
+
+  --text-display: 4.5rem;
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.02em;
+  --text-display-mobile: 2.75rem;
+  --text-display-mobile--line-height: 3rem;
+  --text-display-mobile--letter-spacing: -0.015em;
+  --text-headline-lg: 3rem;
+  --text-headline-lg--line-height: 3.25rem;
+  --text-headline-lg--letter-spacing: -0.01em;
+  --text-headline-lg-mobile: 2rem;
+  --text-headline-lg-mobile--line-height: 2.25rem;
+  --text-headline-md: 2rem;
+  --text-headline-md--line-height: 2.25rem;
+  --text-headline-sm: 1.5rem;
+  --text-headline-sm--line-height: 1.75rem;
+  --text-headline-sm--letter-spacing: 0.01em;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.75rem;
+  --text-body-lg--letter-spacing: 0.01em;
+  --text-body-md: 0.9375rem;
+  --text-body-md--line-height: 1.5rem;
+  --text-body-md--letter-spacing: 0.015em;
+  --text-body-sm: 0.8125rem;
+  --text-body-sm--line-height: 1.375rem;
+  --text-body-sm--letter-spacing: 0.02em;
+  --text-label-md: 0.75rem;
+  --text-label-md--line-height: 1rem;
+  --text-label-md--letter-spacing: 0.12em;
+  --text-label-md--font-weight: 500;
+  --text-label-sm: 0.6875rem;
+  --text-label-sm--line-height: 0.875rem;
+  --text-label-sm--letter-spacing: 0.15em;
+  --text-label-sm--font-weight: 500;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-garamond), Georgia, serif;
+  --font-sans: var(--font-work-sans), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-outline-variant) var(--color-surface-container);
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Chrome, Edge, Safari */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface-container);
+    border-left: 1px solid var(--color-outline-variant);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-outline-variant);
+    border: 2px solid var(--color-surface-container);
+    transition: background-color 150ms;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-container);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: var(--color-primary);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--color-surface-container);
+  }
 }
